@@ -48,6 +48,7 @@ const UserBehaviorReport = () => {
       const data = await response.json();
       return data.profile_score;
     } catch (error) {
+      console.log(selectedAccount);
       console.error(`Error fetching risk score for user ${userId}:`, error);
       return null;
     }
@@ -96,7 +97,7 @@ const UserBehaviorReport = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-
+        console.log("fetchData", data);
         // Fetch risk scores for all users
         const updatedData = await Promise.all(
           data.map(async (account) => {
@@ -134,7 +135,7 @@ const UserBehaviorReport = () => {
             };
           })
         );
-
+        console.log("updateddata", updatedData);
         setAccountsData(updatedData);
         if (updatedData.length > 0 && !selectedAccount) {
           setSelectedAccount(updatedData[0]);
@@ -182,7 +183,7 @@ const UserBehaviorReport = () => {
       </div>
     );
   }
-
+  console.log("user behavior rendered");
   const getAlertContent = (riskScore) => {
     if (riskScore >= 50) {
       return {

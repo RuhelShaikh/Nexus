@@ -14,6 +14,7 @@ db = client['test']  # Database name
 users_collection = db['users'] 
 user_collection = db['user'] 
 activity_collection = db['activity'] 
+posts_collection = db['posts']
 
 class UserProfileScore:
     # Helper Functions for Risk Scoring

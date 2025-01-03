@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
   AreaChart,
   Area,
@@ -8,7 +8,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-} from 'recharts';
+} from "recharts";
 
 interface ActivityGraphProps {
   data: { date: string; value: number }[];
@@ -16,9 +16,9 @@ interface ActivityGraphProps {
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'short',
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
   });
 };
 
@@ -36,7 +36,10 @@ const ActivityGraph: React.FC<ActivityGraphProps> = ({ data }) => {
       className="w-full h-[250px]"
     >
       <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={formattedData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+        <AreaChart
+          data={formattedData}
+          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+        >
           <defs>
             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#34d399" stopOpacity={0.3} />
@@ -48,10 +51,10 @@ const ActivityGraph: React.FC<ActivityGraphProps> = ({ data }) => {
           <YAxis stroke="#9ca3af" />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#1f2937',
-              border: '1px solid #374151',
-              borderRadius: '0.375rem',
-              color: '#f3f4f6',
+              backgroundColor: "#1f2937",
+              border: "1px solid #374151",
+              borderRadius: "0.375rem",
+              color: "#f3f4f6",
             }}
           />
           <Area
@@ -69,7 +72,9 @@ const ActivityGraph: React.FC<ActivityGraphProps> = ({ data }) => {
 };
 
 const Dashboard: React.FC = () => {
-  const [graphData, setGraphData] = useState<{ date: string; value: number }[]>([]);
+  const [graphData, setGraphData] = useState<{ date: string; value: number }[]>(
+    []
+  );
   const [loading, setLoading] = useState(true); // Loading state added
 
   useEffect(() => {
@@ -85,21 +90,25 @@ const Dashboard: React.FC = () => {
 
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8080/dashboard/activity', {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        const response = await fetch(
+          "http://127.0.0.1:8080/dashboard/activity",
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await response.json();
-        const Data = data.map(item => {
+        const Data = data.map((item) => {
           const date = Object.keys(item)[0];
           const value = item[date];
           return { date, value };
         });
         const FinalData = dummyData.concat(Data);
+
         setGraphData(FinalData);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       } finally {
         setLoading(false); // Stop loading once data is fetched
       }
@@ -110,7 +119,9 @@ const Dashboard: React.FC = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Drug Trafficking Accounts Monitoring</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        Drug Trafficking Accounts Monitoring
+      </h1>
       {loading ? (
         <div className="w-full h-[250px] flex items-center justify-center">
           {/* Simple loading spinner */}

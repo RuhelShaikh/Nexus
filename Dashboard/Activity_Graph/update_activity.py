@@ -8,7 +8,8 @@ def update_activity_monitor(users_collection, activity_collection):
     for user in all_users:
         # Extract the date portion directly from the "createdAt" field
         created_date = user["createdAt"].date()
-        daily_counts[created_date] += 1
+        updated_date = user["updatedAt"].date()
+        daily_counts[updated_date] += 1
 
 
     # Update the "activity" collection with daily user counts

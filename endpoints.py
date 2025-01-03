@@ -29,7 +29,6 @@ users_collection = db['users']
 activity_collection = db['activity']
 flags_collection = db['flags'] 
 
-
 # Dashboard endpoints
 @app.route('/dashboard/heatmap')
 def heatmap():
@@ -66,12 +65,14 @@ def drugClassification():
     })
 
 @app.route('/database/users', methods=['GET'])
-def get_users():
+def get_users():   
     try:
         users = []
+
         for user in users_collection.find():
-            if user["isFlag"] == False:
-                continue
+            print(user["isFlag"])
+            # if user["isFlag"] == False:
+            #     continue
             users.append({
                 "id": str(user["_id"]),  # Convert MongoDB ObjectId to string
                 "name": user["name"],
@@ -83,6 +84,8 @@ def get_users():
                 "behaviors": user.get("behaviors", []),
                 "riskFactors": user.get("riskFactors", []),
             })
+            
+        print(users)
         return jsonify(users)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
