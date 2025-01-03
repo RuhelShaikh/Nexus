@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema(
     following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
     bookmarks: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
+    likeHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
     isMFAEnabled: { type: Boolean, default: true },
     otp: { type: String },
     otpExpiresAt: { type: Date },

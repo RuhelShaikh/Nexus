@@ -312,15 +312,21 @@ export const likePost = async (req, res) => {
     await post.save();
 
     const user = await User.findById(likeKrneWalaUserKiId).select(
-      "username profilePicture"
+      "username profilePicture likeHistory"
     );
+    user.likeHistory.push(postId);
+    await user.save();
+
     const postOwnerId = post.author.toString();
 
     if (postOwnerId !== likeKrneWalaUserKiId) {
       const notification = {
         type: "like",
         userId: likeKrneWalaUserKiId,
-        userDetails: user,
+        userDetails: {
+          username: user.username,
+          profilePicture: user.profilePicture,
+        },
         postId,
         message: "Your post was liked",
       };
