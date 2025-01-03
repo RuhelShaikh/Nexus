@@ -175,7 +175,7 @@ const LeftSidebar = () => {
             className="my-8 pl-3 relative group"
           >
             <h1 className="font-['Cinzel'] font-bold text-3xl tracking-wider bg-gradient-to-r from-violet-600 via-fuchsia-500 to-violet-600 bg-clip-text text-transparent relative z-10 transition-all duration-500 group-hover:tracking-widest">
-              ENIGMA
+              NEXUS
             </h1>
             <div className="absolute -bottom-1 left-3 w-0 h-0.5 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-violet-500 transition-all duration-500 group-hover:w-[80%] opacity-0 group-hover:opacity-100"></div>
             <span className="absolute -top-1 left-3 font-['Rajdhani'] text-xs tracking-widest text-violet-400 opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-y-full">

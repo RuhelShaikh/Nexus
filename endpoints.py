@@ -73,6 +73,9 @@ def get_users():
             print(user["isFlag"])
             # if user["isFlag"] == False:
             #     continue
+            longitude = user.get("lastLoginLocation", "Unknown").get("longitude")
+            latitude = user.get("lastLoginLocation", "Unknown").get("latitude")
+            full_location = f"{latitude}, {longitude}"
             users.append({
                 "id": str(user["_id"]),  # Convert MongoDB ObjectId to string
                 "name": user["name"],
@@ -80,7 +83,7 @@ def get_users():
                 "email": user.get("email", ""),
                 "riskScore": user.get("riskScore", 0),
                 "lastActive": user.get("lastActive"),
-                "location": user.get("location", "Unknown"),
+                "location": full_location,
                 "behaviors": user.get("behaviors", []),
                 "riskFactors": user.get("riskFactors", []),
             })

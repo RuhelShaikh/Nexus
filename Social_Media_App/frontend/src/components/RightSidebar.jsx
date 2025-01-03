@@ -99,9 +99,7 @@ const RightSidebar = () => {
               Terms
             </a>
           </div>
-          <p className="mt-2 text-xs text-gray-400">
-            © 2024 ChatFlow. All rights reserved.
-          </p>
+          <p className="mt-2 text-xs text-gray-400"></p>
         </div>
       </div>
     </div>
