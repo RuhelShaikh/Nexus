@@ -29,6 +29,41 @@ _CONNECT_ ------ _DETECT_ ------ _PROTECT_
 - _Streamlined Investigations_:
   - Streamline investigations by flagging suspicious activities and uncovering trafficking networks.
 
+## Setup instructions
+
+1. Clone the project
+  - git clone https://github.com/your-org/your-repo.git
+  - cd your-repo
+2. Setup MongoDB
+  - create a database in atlas, or local. 
+3. Setup ENV file in root
+  - MONGO_URI=your database URI
+  - JWT_SECRET=your_secret_key
+4. Download and install ollama
+  - Run this command
+    * ollama pull wizardlm2
+5. Install dependencies
+  - cd Social_Media_App/frontend
+    * npm install
+
+  - cd ../backend
+    * npm install
+
+  - cd ../../Dashboard/UI
+    * npm install
+
+  - For Python backend
+    * pip install -r requirements.txt
+6. To run the project
+  - In ollama, run this command 
+    * ollama serve  
+  - cd Dashboard/UI
+    * npm run dev
+  - cd Social_Media_App/backend
+    * npm start
+  - cd Social_Media_App/frontend
+    * npm run dev
+
 ## Features
 
 1. IP Reputation Check
