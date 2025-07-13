@@ -4,6 +4,7 @@
 
 _CONNECT_ ------ _DETECT_ ------ _PROTECT_
 
+
 ## Solution
 
 - _Illegal Activities on Messaging Platforms_:
@@ -29,19 +30,28 @@ _CONNECT_ ------ _DETECT_ ------ _PROTECT_
 - _Streamlined Investigations_:
   - Streamline investigations by flagging suspicious activities and uncovering trafficking networks.
 
+
 ## Setup instructions
 
 1. Clone the project
   - git clone https://github.com/your-org/your-repo.git
   - cd your-repo
+
+
 2. Setup MongoDB
   - create a database in atlas, or local. 
+
+
 3. Setup ENV file in root
   - MONGO_URI=your database URI
   - JWT_SECRET=your_secret_key
+
+
 4. Download and install ollama
   - Run this command
     * ollama pull wizardlm2
+
+
 5. Install dependencies
   - cd Social_Media_App/frontend
     * npm install
@@ -54,6 +64,8 @@ _CONNECT_ ------ _DETECT_ ------ _PROTECT_
 
   - For Python backend
     * pip install -r requirements.txt
+
+
 6. To run the project
   - In ollama, run this command 
     * ollama serve  
@@ -63,6 +75,7 @@ _CONNECT_ ------ _DETECT_ ------ _PROTECT_
     * npm start
   - cd Social_Media_App/frontend
     * npm run dev
+
 
 ## Features
 
@@ -76,11 +89,14 @@ _CONNECT_ ------ _DETECT_ ------ _PROTECT_
 8. Photo/Image Hosting
 9. Compliance: GDPR and CCPA (DPDPDA)
 
+
 ### Flag Activation
 
 - Turn On: If someone uses unwanted keywords.
 
+
 ## Risk Score Calculation
+
 
 ### Factors
 
@@ -89,9 +105,11 @@ _CONNECT_ ------ _DETECT_ ------ _PROTECT_
 - Behavior Pattern
 - Network Analysis
 
+
 ### Risk Score Formula
 
 Risk Factor = (Post Frequency Score + Keyword Score + Location Score + Message Score) / 20 \* 100
+
 
 ### Risk Score Components
 
@@ -110,15 +128,18 @@ Risk Factor = (Post Frequency Score + Keyword Score + Location Score + Message S
 - Scaling of Score (Normalization):
   - (Total Score / Maximum Score) \* 100
 
+
 ### Methodology of Risk Factor Counter
 
 - Distance Calculation:
   - If the distance between user location and hotspot is within a threshold (0.1), then Risk Score = 5; otherwise, Risk Score = 0.
   - Distance Formula: Haversine
 
+
 ## Dashboard
 
 - Display only the top 3 scores on the dashboard.
+
 
 ### Detailed Factors
 
@@ -126,6 +147,7 @@ Risk Factor = (Post Frequency Score + Keyword Score + Location Score + Message S
 - Flagged Words
 - Total Positive
 - Total Coded (Negative)
+
 
 ## VPN Analysis
 
@@ -136,7 +158,9 @@ Risk Factor = (Post Frequency Score + Keyword Score + Location Score + Message S
 5. Port Scan
 6. Real IP
 
+
 ## Methodology
+
 
 ### Distance Calculation: Haversine Formula
 
@@ -150,15 +174,18 @@ d = R _ c
   - Δλ = difference in longitudes
   - R = Earth's radius (mean radius = 6,371 km)
 
+
 ## Compliance
 
 - Ensure compliance with GDPR and CCPA (DPDPDA) for data protection and privacy.
+
 
 ## User Interface
 
 - _Real-Time Analytics_: Display real-time data and analytics.
 - _Visual Reports_: Generate visual reports for easy understanding.
 - _Alerts_: Provide instant alerts to law enforcement agencies.
+
 
 ## Technology Stack
 
@@ -168,6 +195,7 @@ d = R _ c
 - _Frontend_: User-friendly dashboard for visual reports and alerts.
 - _Backend_: Robust server-side logic for processing and tracking.
 
+
 ## Implementation Steps
 
 1. Set Up Controlled Environment: Develop a dummy social media platform.
@@ -176,6 +204,7 @@ d = R _ c
 4. Create User Interface: Design and develop the dashboard for real-time analytics and alerts.
 5. Implement Security Features: Encrypt passwords, detect VPNs, and ensure compliance with GDPR and CCPA.
 6. Testing and Deployment: Test the system thoroughly and deploy for use by law enforcement.
+
 
 ## Conclusion
 
